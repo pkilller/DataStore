@@ -66,12 +66,12 @@ public class KVDataAdapter {
     }
 
     public void insert(String table, String key, String value) {
+        delete(table, key);
+
         ContentValues cv = new ContentValues();
         cv.put(FN_KEY, key);
         cv.put(FN_VALUE, value);
         db.insert(table, null, cv);
-        // update value.
-        update(table, key, value);
     }
 
     public void delete(String table, String key) {
